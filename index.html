@@ -6,47 +6,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lara's Pomodoro</title>
+<title>Cute Panda Pomodoro</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
-
 <body>
 
+<div id="petals"></div>
+
 <div class="container">
+
+<h1 class="title">Cute Panda Pomodoro</h1>
 
 <div class="mainLayout">
 
 <div class="timer">
 
 <svg width="260" height="260">
+
 <circle class="bg" cx="130" cy="130" r="120"/>
 <circle class="progress" cx="130" cy="130" r="120"/>
+
 </svg>
 
 <div class="time" id="time">25:00</div>
 
-<div class="subtitle" id="mode">stay focused</div>
+<div class="subtitle" id="mode">Stay Focused</div>
 
 </div>
+
+
+<div class="image">
+<img id="panda" src="img/focus.png">
+</div>
+
 </div>
 
 
 <div class="buttons">
 
 <button onclick="startTimer()">Start</button>
-<button id="pauseBtn" onclick="pauseTimer()">Pause</button>
+<button onclick="pauseTimer()">Pause</button>
 <button onclick="openPopup()">Set</button>
-<div class="stats">Focus today: <span id="focusStats">0</span> min</div>
+
+</div>
+
+
+<div class="stats">
+
+Today's Focus Time:
+<span id="focusStats">0</span> minutes
+
 </div>
 
 </div>
 
 
 
-<!-- SESSION POPUP -->
+<!-- SESSION BUILDER POPUP -->
 
 <div id="sessionPopup" class="popup">
 
@@ -81,11 +100,10 @@ Ok!
 </div>
 
 
-<audio id="focusMusic" src="Focus.mp3" loop></audio>
-<audio id="relaxMusic" src="Relaxing.mp3" loop></audio>
+<audio id="focusMusic" src="audio/Focus.mp3" loop></audio>
+<audio id="relaxMusic" src="audio/Relaxing.mp3" loop></audio>
 <div id="petals"></div>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
-
 </html>
