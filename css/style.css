@@ -1,109 +1,249 @@
-<!DOCTYPE html>
-<html lang="en">
+body{
 
-<head>
+margin:0;
+font-family:"Comic Sans MS", cursive;
+background:#f6d7de;
+overflow:hidden;
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 
-<title>Cute Panda Pomodoro</title>
+}
 
-<link rel="stylesheet" href="css/style.css">
+.title{
 
-</head>
+color:#a86a76;
 
-<body>
+}
 
-<div id="petals"></div>
+.container{
 
-<div class="container">
+text-align:center;
+z-index:2;
 
-<h1 class="title">Cute Panda Pomodoro</h1>
+}
 
-<div class="mainLayout">
+.mainLayout{
 
-<div class="timer">
+display:flex;
+gap:40px;
+align-items:center;
+justify-content:center;
 
-<svg width="260" height="260">
+}
 
-<circle class="bg" cx="130" cy="130" r="120"/>
-<circle class="progress" cx="130" cy="130" r="120"/>
+.timer{
 
-</svg>
+position:relative;
+width:260px;
+height:260px;
 
-<div class="time" id="time">25:00</div>
+}
 
-<div class="subtitle" id="mode">Stay Focused</div>
+svg{
 
-</div>
+transform:rotate(-90deg);
+
+}
+
+circle{
+
+fill:none;
+stroke-width:10;
+
+}
+
+.bg{
+
+stroke:#ffdce3;
+
+}
+
+.progress{
+
+stroke:#ff8ea1;
+stroke-linecap:round;
+stroke-dasharray:754;
+stroke-dashoffset:0;
+transition:stroke-dashoffset 1s linear;
+
+}
+
+.time{
+
+position:absolute;
+top:45%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:60px;
+color:#a86a76;
+
+}
+
+.subtitle{
+
+position:absolute;
+top:60%;
+left:50%;
+transform:translateX(-50%);
+color:#a86a76;
+
+}
+
+.image img{
+
+width:220px;
+transition:transform 0.3s;
+
+}
+
+.bounce{
+
+transform:scale(1.1);
+
+}
+
+.buttons button{
+
+background:#ff9fb0;
+border:none;
+color:white;
+padding:12px 26px;
+border-radius:20px;
+margin:10px;
+cursor:pointer;
+
+}
+
+.stats{
+
+margin-top:15px;
+color:#8a5965;
+
+}
 
 
-<div class="image">
-<img id="panda" src="img/focus.png">
-</div>
+/* popup */
 
-</div>
+.popup{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+
+display:none;
+justify-content:center;
+align-items:center;
+
+}
+
+.popupContent{
+
+background:white;
+padding:30px;
+border-radius:20px;
+width:450px;
+
+}
+
+.popupButtons button{
+
+margin:6px;
+padding:10px 16px;
+border:none;
+border-radius:15px;
+
+}
+
+.focusBtn{background:#b8f2c3}
+.relaxBtn{background:#bcdfff}
+.clearBtn{background:#ffd2d2}
+.okBtn{background:#ffc6e2}
+
+.sessionMap{
+
+margin-top:20px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+
+}
+
+.balloon{
+
+padding:8px 14px;
+border-radius:20px;
+
+}
+
+.focusBalloon{background:#b8f2c3}
+.relaxBalloon{background:#bcdfff}
+
+.arrow{
+
+font-size:20px;
+
+}
 
 
-<div class="buttons">
+/* falling sakura */
 
-<button onclick="startTimer()">Start</button>
-<button onclick="pauseTimer()">Pause</button>
-<button onclick="openPopup()">Set</button>
+#petals{
 
-</div>
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
 
+}
 
-<div class="stats">
+.petal{
 
-Today's Focus Time:
-<span id="focusStats">0</span> minutes
+position:absolute;
+width:10px;
+height:10px;
+background:pink;
+border-radius:50%;
+opacity:0.7;
+animation:fall linear infinite;
 
-</div>
+}
 
-</div>
+@keyframes fall{
 
+0%{
+transform:translateY(-10px);
+}
 
+100%{
+transform:translateY(100vh);
+}
 
-<!-- SESSION BUILDER POPUP -->
-
-<div id="sessionPopup" class="popup">
-
-<div class="popupContent">
-
-<h2>Create your study flow</h2>
-
-<div class="popupButtons">
-
-<button class="focusBtn" onclick="addSession('focus')">
-Add Focus
-</button>
-
-<button class="relaxBtn" onclick="addSession('relax')">
-Add Relax
-</button>
-
-<button class="clearBtn" onclick="clearSessions()">
-Clear All
-</button>
-
-<button class="okBtn" onclick="saveSessions()">
-Ok!
-</button>
-
-</div>
-
-<div id="sessionMap" class="sessionMap"></div>
-
-</div>
-
-</div>
+}
 
 
-<audio id="focusMusic" src="audio/Focus.mp3" loop></audio>
-<audio id="relaxMusic" src="audio/Relaxing.mp3" loop></audio>
+/* mobile */
 
-<script src="js/script.js"></script>
+@media (max-width:700px){
 
-</body>
-</html>
+.mainLayout{
+
+flex-direction:column;
+
+}
+
+.image img{
+
+width:160px;
+
+}
+
+}
