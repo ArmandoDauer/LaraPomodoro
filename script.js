@@ -40,7 +40,6 @@ function startTimer(){
 
 paused=false
 clearInterval(timer)
-document.getElementById("pauseBtn").innerText="Pause"
 
 let session=sessions[currentSession]
 
@@ -93,28 +92,10 @@ startTimer()
 
 function pauseTimer(){
 
-const btn=document.getElementById("pauseBtn")
-
-if(!paused){
-
 paused=true
+
 document.getElementById("focusMusic").pause()
 document.getElementById("relaxMusic").pause()
-btn.innerText="Continue"
-
-}else{
-
-paused=false
-btn.innerText="Pause"
-
-const currentType=sessions[currentSession].type
-if(currentType==="focus"){
-document.getElementById("focusMusic").play()
-}else{
-document.getElementById("relaxMusic").play()
-}
-
-}
 
 }
 
